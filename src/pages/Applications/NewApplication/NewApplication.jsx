@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { createApplication } from "../../../services/applications/applicationService";
 import ApplicationForm from "../../../components/ApplicationForm/ApplicationForm";
 import detectJobPlatform from "../../../utils/detectJobPlatform";
+import toast from "react-hot-toast";
 
 
 import {
@@ -52,13 +53,13 @@ function NewApplication() {
   try {
     await createApplication(payload);
 
-    alert("Application added successfully!");
+    Toaster.success("Application added successfully!");
 
     navigate("/dashboard");
   } catch (error) {
     console.error(error);
 
-    alert("Failed to add application.");
+    Toaster.error("Failed to add application.");
   }
 }
 

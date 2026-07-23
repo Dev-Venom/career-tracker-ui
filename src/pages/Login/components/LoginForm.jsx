@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { FaEnvelope, FaLock } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 import { useAuth } from "../../../hooks";
 
@@ -47,6 +48,7 @@ function LoginForm() {
     const result = await login(formData);
 
     if (result.success) {
+      toast.success("Login successful!");
       navigate("/dashboard");
       return;
     }

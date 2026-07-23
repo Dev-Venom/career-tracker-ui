@@ -3,6 +3,8 @@ import "./EditApplication.css";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import detectJobPlatform from "../../../utils/detectJobPlatform";
+import toast from "react-hot-toast";
+
 
 import { Card, Input, Button, Select, TextArea } from "../../../components/ui";
 
@@ -62,7 +64,7 @@ function EditApplication() {
 
       await updateApplication(id, payload);
 
-      alert("Application updated successfully!");
+      Toaster.success("Application updated successfully!");
 
       navigate("/dashboard");
     } catch (error) {
@@ -70,7 +72,7 @@ function EditApplication() {
   console.error("Response:", error.response);
   console.error("Response Data:", error.response?.data);
 
-  alert("Failed to update application.");
+  Toaster.error("Failed to update application.");
 }
   }
 

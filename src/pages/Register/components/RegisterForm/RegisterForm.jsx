@@ -7,6 +7,8 @@ import { register } from "../../../../services/auth/registerService";
 
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
 
+import toast from "react-hot-toast";
+
 import {
   Brand,
   Button,
@@ -81,7 +83,7 @@ function RegisterForm() {
 
       await register(payload);
 
-      alert("Account created successfully!");
+      Toaster.success("Account created successfully!");
 
       navigate("/login");
     } catch (error) {

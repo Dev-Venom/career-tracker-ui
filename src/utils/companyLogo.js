@@ -14,9 +14,6 @@ const COMPANY_DOMAINS = {
   juspay: "juspay.in",
 };
 
-
-
-
 export function getCompanyLogo(jobUrl) {
   if (!jobUrl) return null;
 
