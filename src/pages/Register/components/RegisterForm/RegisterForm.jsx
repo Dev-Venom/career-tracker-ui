@@ -83,7 +83,7 @@ function RegisterForm() {
 
       await register(payload);
 
-      Toaster.success("Account created successfully!");
+      toaster.success("Account created successfully!");
 
       navigate("/login");
     } catch (error) {

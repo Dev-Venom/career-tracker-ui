@@ -7,14 +7,7 @@ import ApplicationForm from "../../../components/ApplicationForm/ApplicationForm
 import detectJobPlatform from "../../../utils/detectJobPlatform";
 import toast from "react-hot-toast";
 
-
-import {
-  Card,
-  Input,
-  Button,
-  Select,
-  TextArea
-} from "../../../components/ui";
+import { Card, Input, Button, Select, TextArea } from "../../../components/ui";
 
 function NewApplication() {
   const navigate = useNavigate();
@@ -41,43 +34,38 @@ function NewApplication() {
     }));
   }
 
-  
   async function handleSubmit(event) {
-  event.preventDefault();
+    event.preventDefault();
 
-  const payload = {
-    ...formData,
-    jobPlatform: detectJobPlatform(formData.jobUrl),
-  };
+    const payload = {
+      ...formData,
+      jobPlatform: detectJobPlatform(formData.jobUrl),
+    };
 
-  try {
-    await createApplication(payload);
+    try {
+      await createApplication(payload);
 
-    Toaster.success("Application added successfully!");
+      toast.success("Application added successfully!");
 
-    navigate("/dashboard");
-  } catch (error) {
-    console.error(error);
+      navigate("/dashboard");
+    } catch (error) {
+      console.error(error);
 
-    Toaster.error("Failed to add application.");
+      toast.error("Failed to add application.");
+    }
   }
-}
-
-  
 
   return (
     <main className="new-application">
       <Card>
-
-  <ApplicationForm
-    title="Add New Application"
-    submitText="Save Application"
-    formData={formData}
-    onChange={handleChange}
-    onSubmit={handleSubmit}
-  />
-
-</Card>
+        <ApplicationForm
+          title="Add New Application"
+          submitText="Save Application"
+          formData={formData}
+          onChange={handleChange}
+          onSubmit={handleSubmit}
+        />
+      </Card>
     </main>
   );
 }

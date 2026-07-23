@@ -9,6 +9,7 @@ import RecentApplications from "./components/RecentApplications";
 import UpcomingInterviews from "./components/UpcomingInterviews";
 import QuickActions from "./components/QuickActions";
 import Analytics from "./components/analytics/Analytics";
+import toast from "react-hot-toast";
 
 import ApplicationStatusChart from "../../components/charts/ApplicationStatusChart/ApplicationStatusChart";
 import ApplicationTrendChart from "../../components/charts/ApplicationTrendChart/ApplicationTrendChart";
@@ -39,18 +40,19 @@ function Dashboard() {
   
 
   async function handleDelete(id) {
-    const confirmed = window.confirm("Delete this application?");
-
-    if (!confirmed) return;
+    
+    if (!window.confirm("Are you sure you want to delete this application?")) {
+    return;
+}
 
     try {
       await deleteApplication(id);
-
+      toast.success("Application deleted successfully!");
       refreshDashboard();
     } catch (error) {
-      console.error(error);
+      toast.error("Failed to delete application.");
 
-      alert("Failed to delete application.");
+      
     }
   }
 

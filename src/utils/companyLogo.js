@@ -5,6 +5,8 @@ const COMPANY_DOMAINS = {
   apple: "apple.com",
   meta: "meta.com",
   netflix: "netflix.com",
+  Tesla: "tesla.com",
+  TCS: "tcs.com",
   cognizant: "cognizant.com",
   infosys: "infosys.com",
   tcs: "tcs.com",

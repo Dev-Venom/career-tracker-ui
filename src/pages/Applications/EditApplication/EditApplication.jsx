@@ -5,7 +5,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import detectJobPlatform from "../../../utils/detectJobPlatform";
 import toast from "react-hot-toast";
 
-
 import { Card, Input, Button, Select, TextArea } from "../../../components/ui";
 
 import {
@@ -55,25 +54,24 @@ function EditApplication() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    
+
     const payload = {
       ...formData,
       jobPlatform: detectJobPlatform(formData.jobUrl),
     };
     try {
-
       await updateApplication(id, payload);
 
-      Toaster.success("Application updated successfully!");
+      toast.success("Application updated successfully!");
 
       navigate("/dashboard");
     } catch (error) {
-  console.error("Full Error:", error);
-  console.error("Response:", error.response);
-  console.error("Response Data:", error.response?.data);
+      console.error("Full Error:", error);
+      console.error("Response:", error.response);
+      console.error("Response Data:", error.response?.data);
 
-  Toaster.error("Failed to update application.");
-}
+      toast.error("Failed to update application.");
+    }
   }
 
   return (
