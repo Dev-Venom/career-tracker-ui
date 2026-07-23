@@ -1,0 +1,34 @@
+.login {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+
+  padding: var(--space-2xl) 0;
+
+  background-color: var(--color-background);
+}
+
+.login__wrapper {
+  display: grid;
+
+  gap: var(--space-3xl);
+}
+
+.login__hero,
+.login__form {
+  width: 100%;
+}
+
+/* ==========================
+   TABLET & DESKTOP
+========================== */
+
+@media (min-width: 992px) {
+
+  .login__wrapper {
+    grid-template-columns: 1fr 420px;
+    align-items: center;
+  }
+
+}

@@ -1,0 +1,116 @@
+/* ==========================================
+   FADE IN
+========================================== */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fade-in 300ms ease forwards;
+}
+
+
+/* ==========================================
+   SLIDE UP
+========================================== */
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  animation: slide-up 400ms ease forwards;
+}
+
+
+/* ==========================================
+   SCALE IN
+========================================== */
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scale-in {
+  animation: scale-in 250ms ease forwards;
+}
+
+
+/* ==========================================
+   HOVER LIFT
+========================================== */
+
+.hover-lift {
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.hover-lift:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-lg);
+}
+
+
+/* ==========================================
+   BUTTON PRESS
+========================================== */
+
+.button-press {
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.button-press:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-sm);
+}
+
+
+/* ==========================================
+   FOCUS RING
+========================================== */
+
+.focus-ring:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

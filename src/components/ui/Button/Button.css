@@ -1,0 +1,99 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+
+  padding: var(--space-md) var(--space-xl);
+
+  border: var(--border-width-medium) solid var(--color-border);
+  border-radius: var(--border-radius-md);
+
+  box-shadow: var(--shadow-md);
+
+  font-family: var(--font-heading);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+/* ==========================
+   Variants
+========================== */
+
+.button--primary {
+  background-color: var(--color-primary);
+  color: var(--color-black);
+}
+
+.button--secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.button--outline {
+  background-color: transparent;
+  color: var(--color-text-primary);
+}
+
+.button--danger {
+  background-color: var(--color-danger);
+  color: var(--color-white);
+}
+
+/* ==========================
+   Sizes
+========================== */
+
+.button--small {
+  padding: var(--space-sm) var(--space-lg);
+  font-size: var(--font-size-sm);
+}
+
+.button--medium {
+  padding: var(--space-md) var(--space-xl);
+}
+
+.button--large {
+  padding: var(--space-lg) var(--space-2xl);
+  font-size: var(--font-size-lg);
+}
+
+/* ==========================
+   States
+========================== */
+
+.button:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.button:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ==========================
+   Utilities
+========================== */
+
+.button--full-width {
+  width: 100%;
+}
+
+.button__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,56 @@
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.brand__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+
+  background: var(--color-primary);
+
+  border: var(--border-width-medium) solid var(--color-border);
+  border-radius: var(--border-radius-md);
+
+  box-shadow: var(--shadow-sm);
+
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-extra-bold);
+}
+
+.brand__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand__title {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+
+  color: var(--color-text-primary);
+}
+
+.brand__subtitle {
+  font-size: var(--font-size-sm);
+
+  color: var(--color-text-secondary);
+}
+
+/* ==========================
+   Sizes
+========================== */
+
+.brand--small .brand__logo {
+  width: 40px;
+  height: 40px;
+}
+
+.brand--large .brand__logo {
+  width: 64px;
+  height: 64px;
+}

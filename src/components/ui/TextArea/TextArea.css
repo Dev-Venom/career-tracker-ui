@@ -1,0 +1,26 @@
+.textarea {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.textarea__label {
+  font-weight: 600;
+}
+
+.textarea__field {
+  width: 100%;
+  padding: 1rem;
+  border: 3px solid var(--color-black);
+  border-radius: 10px;
+  background: var(--color-white);
+  font: inherit;
+  resize: vertical;
+  min-height: 120px;
+  outline: none;
+}
+
+.textarea__field:focus {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--color-black);
+}

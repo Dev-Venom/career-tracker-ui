@@ -1,0 +1,24 @@
+.select {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.select__label {
+  font-weight: 600;
+}
+
+.select__field {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 3px solid var(--color-black);
+  border-radius: 10px;
+  background: var(--color-white);
+  font: inherit;
+  outline: none;
+}
+
+.select__field:focus {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--color-black);
+}

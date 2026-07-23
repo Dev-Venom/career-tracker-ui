@@ -1,0 +1,127 @@
+:root {
+  /* =====================================================
+     COLORS
+  ====================================================== */
+
+  /* Primary Brand */
+  --color-primary: #FFD84D;
+  --color-primary-hover: #F4C400;
+  --color-primary-light: #FFF4BF;
+
+  /* Secondary */
+  --color-secondary: #4D8DFF;
+  --color-secondary-hover: #2E73F5;
+  --color-secondary-light: #DCE9FF;
+
+  /* Success */
+  --color-success: #4CAF50;
+  --color-success-light: #DDF6DE;
+
+  /* Warning */
+  --color-warning: #FF9800;
+  --color-warning-light: #FFE5C2;
+
+  /* Danger */
+  --color-danger: #F44336;
+  --color-danger-light: #FFE2DF;
+
+  /* Analytics */
+  --color-analytics: #E056FD;
+  --color-analytics-light: #F7D8FF;
+
+  /* Neutral */
+  --color-white: #FFFFFF;
+  --color-black: #111111;
+
+  --color-background: #F8F9FC;
+  --color-surface: #FFFFFF;
+
+  --color-border: #1F1F1F;
+
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #666666;
+  --color-text-muted: #9A9A9A;
+
+  /* =====================================================
+     TYPOGRAPHY
+  ====================================================== */
+
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-md: 1.125rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.75rem;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 800;
+
+  --line-height-base: 1.6;
+
+  /* =====================================================
+     SPACING
+  ====================================================== */
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 0.75rem;
+  --space-lg: 1rem;
+  --space-xl: 1.5rem;
+  --space-2xl: 2rem;
+  --space-3xl: 3rem;
+  --space-4xl: 4rem;
+
+  /* =====================================================
+     BORDER
+  ====================================================== */
+
+  --border-width-thin: 1px;
+  --border-width-medium: 2px;
+  --border-width-thick: 3px;
+  --border-width-heavy: 4px;
+
+  --border-radius-sm: 6px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+
+  /* =====================================================
+     SHADOWS
+  ====================================================== */
+
+  --shadow-sm: 2px 2px 0px #111111;
+  --shadow-md: 4px 4px 0px #111111;
+  --shadow-lg: 6px 6px 0px #111111;
+
+  /* =====================================================
+     TRANSITIONS
+  ====================================================== */
+
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+
+  /* =====================================================
+     LAYOUT
+  ====================================================== */
+
+  --container-width: 1200px;
+
+  --header-height: 72px;
+
+  --sidebar-width: 280px;
+
+  --z-dropdown: 100;
+  --z-sticky: 500;
+  --z-overlay: 900;
+  --z-modal: 1000;
+  --z-toast: 1100;
+}

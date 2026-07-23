@@ -1,0 +1,96 @@
+.kanban-column{
+
+    background:white;
+
+    border-radius:16px;
+
+    padding:20px;
+
+    min-height:500px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+
+}
+
+.kanban-column__title{
+
+    margin-bottom:8px;
+
+}
+
+.kanban-column__count{
+
+    color:#666;
+
+    margin-bottom:20px;
+
+}
+
+.kanban-column {
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 20px;
+  min-height: 600px;
+  display: flex;
+flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+
+}
+
+.kanban-column__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.kanban-column__title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.kanban-column__count {
+  background: #2563eb;
+  color: white;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.kanban-column__cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.kanban-column__title {
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.kanban-column__title--applied {
+  background: #2563eb;
+}
+
+.kanban-column__title--interview {
+  background: #f59e0b;
+}
+
+.kanban-column__title--offer {
+  background: #16a34a;
+}
+
+.kanban-column__title--rejected {
+  background: #dc2626;
+}
+
+.kanban-column__empty {
+    margin-top: 40px;
+    text-align: center;
+    color: #888;
+    font-style: italic;
+}

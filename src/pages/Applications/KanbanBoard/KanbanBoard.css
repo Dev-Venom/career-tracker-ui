@@ -1,0 +1,18 @@
+.kanban-board{
+
+    padding:32px;
+
+}
+
+.kanban-board h1{
+
+    margin-bottom:32px;
+
+}
+
+.kanban-board__columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    align-items: start;
+}

@@ -1,0 +1,30 @@
+.register {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 2rem 0;
+
+    background: var(--color-background);
+}
+
+.register__wrapper {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 3rem;
+}
+
+@media (min-width: 992px) {
+
+    .register__wrapper {
+
+        grid-template-columns: 1fr 1fr;
+
+        align-items: center;
+
+    }
+
+}

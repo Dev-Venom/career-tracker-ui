@@ -1,0 +1,31 @@
+.welcome-banner {
+  padding: var(--space-2xl);
+}
+
+.welcome-banner__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.welcome-banner__title {
+  margin-bottom: var(--space-sm);
+
+  font-size: var(--font-size-3xl);
+
+  font-weight: var(--font-weight-bold);
+}
+
+.welcome-banner__subtitle {
+  color: var(--color-text-secondary);
+
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .welcome-banner__content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
