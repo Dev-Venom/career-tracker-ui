@@ -1,0 +1,100 @@
+.career-journey{
+
+    background:white;
+
+    border-radius:24px;
+
+    padding:36px;
+
+    margin-bottom:48px;
+
+    border:1px solid #e5e7eb;
+}
+
+.career-journey__header{
+
+    margin-bottom:40px;
+}
+
+.career-journey__header h2{
+
+    font-size:1.6rem;
+
+    margin-bottom:10px;
+}
+
+.career-journey__header p{
+
+    color:var(--text-secondary);
+}
+
+.career-journey__timeline{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:18px;
+}
+
+.career-step{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+.career-step__icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#e5e7eb;
+
+    font-size:1.5rem;
+
+    color:#6b7280;
+}
+
+.career-step.complete .career-step__icon{
+
+    background:#4f46e5;
+
+    color:white;
+}
+
+.career-line{
+
+    width:90px;
+
+    height:4px;
+
+    border-radius:999px;
+
+    background:#d1d5db;
+}
+
+.career-line.complete{
+
+    background:#4f46e5;
+}
+
+.career-step span{
+
+    font-weight:600;
+}

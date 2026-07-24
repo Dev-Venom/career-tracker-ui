@@ -147,7 +147,7 @@ function Dashboard() {
         onDelete={handleDelete}
       />
 
-      <Analytics />
+      
 
       <UpcomingInterviews
         interviews={dashboardData?.upcomingInterviews || []}

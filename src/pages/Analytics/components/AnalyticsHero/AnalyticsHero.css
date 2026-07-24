@@ -1,0 +1,79 @@
+.analytics-hero{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    gap:32px;
+
+    margin-bottom:48px;
+}
+
+.analytics-hero__badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    background:#eef2ff;
+
+    color:#4f46e5;
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    margin-bottom:18px;
+}
+
+.analytics-hero__title{
+
+    font-size:3rem;
+
+    font-weight:700;
+
+    line-height:1.1;
+
+    margin-bottom:14px;
+}
+
+.analytics-hero__description{
+
+    max-width:620px;
+
+    font-size:1.05rem;
+
+    color:var(--text-secondary);
+
+    line-height:1.7;
+}
+
+.analytics-hero__filter{
+
+    padding:14px 22px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#111827;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.analytics-hero__filter:hover{
+
+    transform:translateY(-3px);
+}

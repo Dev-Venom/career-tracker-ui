@@ -12,6 +12,7 @@ import EditInterview from "../../pages/Interviews/EditInterview/EditInterview";
 import Notification from "../../pages/Notifications/Notification";
 import MainLayout from "../../components/layout/MainLayout";
 import Profile from "../../pages/Profile/Profile";
+import Analytics from "../../pages/Analytics/Analytics";
 
 function AppRouter() {
   return (
@@ -38,6 +39,8 @@ function AppRouter() {
         <Route path="/notifications" element={<Notification />} />
 
         <Route path="/profile" element={<Profile />} />
+
+        <Route path="/analytics" element={<Analytics />} />
       </Route>
     </Routes>
   );

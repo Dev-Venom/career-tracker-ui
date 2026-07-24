@@ -15,13 +15,9 @@ import {
 
 function Sidebar({ sidebarOpen, setSidebarOpen }) {
   return (
-    
-     <aside
-  className={`sidebar ${
-    sidebarOpen ? "sidebar sidebar--open" : "sidebar"
-  }`}
->
-
+    <aside
+      className={`sidebar ${sidebarOpen ? "sidebar sidebar--open" : "sidebar"}`}
+    >
       <div className="sidebar__header">
         <h2>Dashboard</h2>
 
@@ -34,21 +30,14 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
       </div>
 
       <nav className="sidebar__nav">
-        <NavLink
-          to="/dashboard"
-          className={({ isActive }) =>
-            isActive ? "sidebar__link active" : "sidebar__link"
-          }
-        >
-          <FaHome />
-          <span>Dashboard</span>
-        </NavLink>
+        <NavLink to="/analytics">Analytics</NavLink>
 
         <h4 className="sidebar__section">Applications</h4>
 
         <NavLink
           to="/applications/new"
           className={({ isActive }) =>
+        
             isActive ? "sidebar__link active" : "sidebar__link"
           }
         >
@@ -73,15 +62,13 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
           <span>Schedule Interview</span>
         </NavLink>
 
-        <NavLink to="/notifications" className="sidebar__link">
-          <FaBell />
-          <span>Notifications</span>
-        </NavLink>
-
         <NavLink to="/profile" className="sidebar__link">
           <FaUser />
           <span>Profile</span>
         </NavLink>
+
+       
+
       </nav>
     </aside>
   );
