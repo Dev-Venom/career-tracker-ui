@@ -1,0 +1,34 @@
+.career-statistics{
+
+    margin-top:40px;
+}
+
+.career-statistics__header{
+
+    margin-bottom:28px;
+}
+
+.career-statistics__header h2{
+
+    font-size:34px;
+
+    font-weight:800;
+
+    margin-bottom:8px;
+}
+
+.career-statistics__header p{
+
+    color:#6B7280;
+
+    font-size:17px;
+}
+
+.career-statistics__grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:24px;
+}

@@ -1,65 +1,53 @@
 import { useEffect, useState } from "react";
 
-import {
-  getMonthlyStats,
-  getStatusStats,
-  getCompanyStats,
-} from "../services/analytics/analyticsService";
+import { getAnalytics } from "../services/analytics/analyticsService";
 
 function useAnalytics() {
 
-  const [monthly, setMonthly] = useState({});
+    const [analytics, setAnalytics] = useState(null);
 
-  const [status, setStatus] = useState({});
+    const [loading, setLoading] = useState(true);
 
-  const [company, setCompany] = useState({});
-
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
+    const [error, setError] = useState(null);
 
     async function loadAnalytics() {
 
-      try {
+        try {
 
-        const [
-          monthlyRes,
-          statusRes,
-          companyRes,
-        ] = await Promise.all([
+            const data = await getAnalytics();
 
-          getMonthlyStats(),
-          getStatusStats(),
-          getCompanyStats(),
+            setAnalytics(data);
 
-        ]);
+        } catch (err) {
 
-        setMonthly(monthlyRes.data);
-        setStatus(statusRes.data);
-        setCompany(companyRes.data);
+            setError(err);
 
-      } catch (error) {
+        } finally {
 
-        console.error(error);
+            setLoading(false);
 
-      } finally {
-
-        setLoading(false);
-
-      }
+        }
 
     }
 
-    loadAnalytics();
+    useEffect(() => {
 
-  }, []);
+        loadAnalytics();
 
-  return {
-    monthly,
-    status,
-    company,
-    loading,
-  };
+    }, []);
+
+    return {
+
+        analytics,
+
+        loading,
+
+        error,
+
+        refresh: loadAnalytics
+
+    };
+
 }
 
 export default useAnalytics;

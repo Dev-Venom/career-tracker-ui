@@ -1,13 +1,9 @@
 import client from "../api/client";
 
-export const getMonthlyStats = () => {
-  return client.get("/applications/stats/monthly");
-};
+export async function getAnalytics() {
 
-export const getStatusStats = () => {
-  return client.get("/applications/stats/status");
-};
+    const response = await client.get("/analytics");
 
-export const getCompanyStats = () => {
-  return client.get("/applications/stats/company");
-};
+    return response.data;
+
+}

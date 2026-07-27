@@ -1,6 +1,6 @@
 import "./CareerSnapshot.css";
 
-function CareerSnapshot() {
+function CareerSnapshot({insight}) {
 
     return(
 
@@ -16,21 +16,19 @@ function CareerSnapshot() {
 
                 <h2>
 
-                    Today's Insight
+                    {insight?.title}
 
                 </h2>
 
                 <p>
 
-                    You've been consistently applying this month.
-
-                    Your interview rate has increased compared to last month.
+                    {insight?.description}
 
                 </p>
 
                 <span>
 
-                    Keep the momentum going 🚀
+                    {insight?.message}
 
                 </span>
 

@@ -1,96 +1,80 @@
 import "./CareerJourney.css";
 
-import {
-    FaFileAlt,
-    FaEye,
-    FaUserTie,
-    FaTrophy
-} from "react-icons/fa";
+import { FaFileAlt, FaEye, FaUserTie, FaTrophy } from "react-icons/fa";
 
-function CareerJourney() {
+function CareerJourney({ journey }) {
+  return (
+    <section className="career-journey">
+      <div className="career-journey__header">
+        <h2>Career Journey</h2>
 
-    return (
+        <p>Track every milestone of your job search.</p>
+      </div>
 
-        <section className="career-journey">
+      <div className="career-journey__timeline">
+        {/* Applied */}
+        <div
+          className={journey?.applied ? "career-step complete" : "career-step"}
+        >
+          <div className="career-step__icon">
+            <FaFileAlt />
+          </div>
 
-            <div className="career-journey__header">
+          <span>Applied</span>
+        </div>
 
-                <h2>
+        {/* Line */}
+        <div
+          className={journey?.applied ? "career-line complete" : "career-line"}
+        ></div>
 
-                    Career Journey
+        {/* Resume Viewed (Temporary) */}
+        <div className="career-step complete">
+          <div className="career-step__icon">
+            <FaEye />
+          </div>
 
-                </h2>
+          <span>Resume Viewed</span>
+        </div>
 
-                <p>
+        {/* Line */}
+        <div
+          className={
+            journey?.interview ? "career-line complete" : "career-line"
+          }
+        ></div>
 
-                    Track every milestone of your job search.
+        {/* Interview */}
+        <div
+          className={
+            journey?.interview ? "career-step complete" : "career-step"
+          }
+        >
+          <div className="career-step__icon">
+            <FaUserTie />
+          </div>
 
-                </p>
+          <span>Interview</span>
+        </div>
 
-            </div>
+        {/* Line */}
+        <div
+          className={journey?.offer ? "career-line complete" : "career-line"}
+        ></div>
 
-            <div className="career-journey__timeline">
+        {/* Offer */}
+        <div
+          className={journey?.offer ? "career-step complete" : "career-step"}
+        >
+          <div className="career-step__icon">
+            <FaTrophy />
+          </div>
 
-                <div className="career-step complete">
-
-                    <div className="career-step__icon">
-
-                        <FaFileAlt />
-
-                    </div>
-
-                    <span>Applied</span>
-
-                </div>
-
-                <div className="career-line complete"></div>
-
-                <div className="career-step complete">
-
-                    <div className="career-step__icon">
-
-                        <FaEye />
-
-                    </div>
-
-                    <span>Resume Viewed</span>
-
-                </div>
-
-                <div className="career-line complete"></div>
-
-                <div className="career-step complete">
-
-                    <div className="career-step__icon">
-
-                        <FaUserTie />
-
-                    </div>
-
-                    <span>Interview</span>
-
-                </div>
-
-                <div className="career-line"></div>
-
-                <div className="career-step">
-
-                    <div className="career-step__icon">
-
-                        <FaTrophy />
-
-                    </div>
-
-                    <span>Offer</span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    );
-
+          <span>Offer</span>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default CareerJourney;

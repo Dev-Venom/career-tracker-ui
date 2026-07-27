@@ -37,7 +37,6 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
         <NavLink
           to="/applications/new"
           className={({ isActive }) =>
-        
             isActive ? "sidebar__link active" : "sidebar__link"
           }
         >
@@ -66,9 +65,6 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
           <FaUser />
           <span>Profile</span>
         </NavLink>
-
-       
-
       </nav>
     </aside>
   );
