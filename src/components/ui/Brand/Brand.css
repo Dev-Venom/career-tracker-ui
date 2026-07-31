@@ -4,6 +4,12 @@
   gap: var(--space-md);
 }
 
+.brand--vertical {
+  flex-direction: column;
+  gap: var(--space-sm);
+
+}
+
 .brand__logo {
   display: flex;
   align-items: center;
