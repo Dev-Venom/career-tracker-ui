@@ -10,6 +10,11 @@
 
 }
 
+.brand--horizontal {
+  flex-direction: row;
+  gap: var(--space-md);
+}
+
 .brand__logo {
   display: flex;
   align-items: center;
