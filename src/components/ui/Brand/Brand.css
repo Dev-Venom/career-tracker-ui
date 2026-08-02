@@ -52,9 +52,6 @@
   color: var(--color-text-secondary);
 }
 
-/* ==========================
-   Sizes
-========================== */
 
 .brand--small .brand__logo {
   width: 40px;

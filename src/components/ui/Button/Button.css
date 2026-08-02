@@ -23,10 +23,6 @@
     box-shadow var(--transition-fast);
 }
 
-/* ==========================
-   Variants
-========================== */
-
 .button--primary {
   background-color: var(--color-primary);
   color: var(--color-black);
@@ -47,9 +43,7 @@
   color: var(--color-white);
 }
 
-/* ==========================
-   Sizes
-========================== */
+
 
 .button--small {
   padding: var(--space-sm) var(--space-lg);
@@ -65,9 +59,7 @@
   font-size: var(--font-size-lg);
 }
 
-/* ==========================
-   States
-========================== */
+
 
 .button:hover:not(:disabled) {
   transform: translate(-2px, -2px);
@@ -84,9 +76,7 @@
   cursor: not-allowed;
 }
 
-/* ==========================
-   Utilities
-========================== */
+
 
 .button--full-width {
   width: 100%;
