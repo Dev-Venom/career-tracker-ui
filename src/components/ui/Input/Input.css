@@ -105,9 +105,6 @@
   color: var(--color-text-primary);
 }
 
-/* -----------------------------
-   Date & Time Inputs
------------------------------- */
 
 .input__field[type="date"],
 .input__field[type="time"] {
@@ -117,7 +114,7 @@
   cursor: pointer;
 }
 
-/* Keep calendar/time picker icon visible */
+
 .input__field[type="date"]::-webkit-calendar-picker-indicator,
 .input__field[type="time"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
