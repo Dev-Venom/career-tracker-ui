@@ -1,11 +1,15 @@
 import "./Analytics.css";
+import useAnalytics from "../../hooks/useAnalytics";
 
 import CareerPulse from "./components/CareerPulse/CareerPulse";
 import CareerJourney from "./components/CareerJourney/CareerJourney";
 import ApplicationActivity from "./components/ApplicationActivity/ApplicationActivity";
 import ApplicationStatus from "./components/ApplicationStatus/ApplicationStatus";
 
-function Analytics() {
+function Analytics({statusData}) {
+
+  const analytics = useAnalytics();
+  
   return (
     <main className="analytics">
       <section className="analytics__hero">
@@ -30,17 +34,13 @@ function Analytics() {
         </div>
       </section>
 
-    <CareerPulse />
+      <CareerPulse />
 
       <CareerJourney />
 
       <ApplicationActivity />
 
-      <ApplicationStatus />
-
-     
-
-
+      <ApplicationStatus statusData={analytics.applicationStatus} />
     </main>
   );
 }

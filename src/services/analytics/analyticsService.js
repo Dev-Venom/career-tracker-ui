@@ -1,9 +1,7 @@
 import client from "../api/client";
 
-export async function getAnalytics() {
+export const getAnalytics = async () => {
+  const response = await client.get("/analytics");
 
-    const response = await client.get("/analytics");
-
-    return response.data;
-
-}
+  return response.data;
+};
