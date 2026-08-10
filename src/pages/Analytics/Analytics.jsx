@@ -2,7 +2,7 @@ import "./Analytics.css";
 
 import CareerPulse from "./components/CareerPulse/CareerPulse";
 import CareerJourney from "./components/CareerJourney/CareerJourney";
-
+import ApplicationActivity from "./components/ApplicationActivity/ApplicationActivity";
 
 function Analytics() {
   return (
@@ -32,6 +32,8 @@ function Analytics() {
     <CareerPulse />
 
       <CareerJourney />
+
+      <ApplicationActivity />
 
      
 
