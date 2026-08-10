@@ -1,0 +1,92 @@
+.career-pulse {
+  margin-top: 32px;
+
+  padding: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 32px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+
+  background: #ffffff;
+
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+}
+
+.career-pulse__content {
+  max-width: 720px;
+}
+
+.career-pulse__eyebrow {
+  display: inline-block;
+
+  margin-bottom: 10px;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+
+  color: #6366f1;
+}
+
+.career-pulse__title {
+  margin: 0;
+
+  font-size: clamp(28px, 3vw, 38px);
+
+  line-height: 1.15;
+
+  font-weight: 800;
+
+  letter-spacing: -0.03em;
+
+  color: #111827;
+}
+
+.career-pulse__message {
+  max-width: 650px;
+
+  margin: 12px 0 0;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+
+  color: #6b7280;
+}
+
+.career-pulse__indicator {
+  min-width: 150px;
+
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+
+  border-radius: 18px;
+
+  background: #f5f7ff;
+}
+
+.career-pulse__indicator-label {
+  font-size: 12px;
+
+  font-weight: 600;
+
+  color: #6b7280;
+}
+
+.career-pulse__indicator-value {
+  font-size: 22px;
+
+  font-weight: 800;
+
+  color: #4f46e5;
+}

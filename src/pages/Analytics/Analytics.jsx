@@ -1,22 +1,41 @@
 import "./Analytics.css";
 
-import AnalyticsHero from "./components/AnalyticsHero/AnalyticsHero";
-import CareerSnapshot from "./components/CareerSnapshot/CareerSnapshot";
+import CareerPulse from "./components/CareerPulse/CareerPulse";
 import CareerJourney from "./components/CareerJourney/CareerJourney";
-import useAnalytics from "../../hooks/useAnalytics";
-import CareerStatistics from "./components/CareerStatistics/CareerStatistics";
+
 
 function Analytics() {
-  const { analytics, error, loading } = useAnalytics();
   return (
-    <main className="analytics-page">
-      <AnalyticsHero />
+    <main className="analytics">
+      <section className="analytics__hero">
+        <div className="analytics__hero-content">
+          <span className="analytics__eyebrow">CAREER INTELLIGENCE</span>
 
-      <CareerSnapshot insight={analytics?.careerInsight} />
+          <h1 className="analytics__title">
+            Understand your
+            <span> career journey.</span>
+          </h1>
 
-      <CareerJourney journey={analytics?.careerJourney} />
+          <p className="analytics__description">
+            Discover patterns in your job search, measure your progress, and
+            make smarter decisions about your next move.
+          </p>
+        </div>
 
-      <CareerStatistics statistics={analytics?.statistics} />
+        <div className="analytics__period">
+          <span>Analytics period</span>
+
+          <button type="button">Last 30 Days</button>
+        </div>
+      </section>
+
+    <CareerPulse />
+
+      <CareerJourney />
+
+     
+
+
     </main>
   );
 }

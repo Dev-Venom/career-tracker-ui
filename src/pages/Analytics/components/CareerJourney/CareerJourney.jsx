@@ -1,78 +1,115 @@
 import "./CareerJourney.css";
 
-import { FaFileAlt, FaEye, FaUserTie, FaTrophy } from "react-icons/fa";
+import {
+  FaFileAlt,
+  FaUserTie,
+  FaTrophy,
+  FaCheckCircle,
+} from "react-icons/fa";
 
-function CareerJourney({ journey }) {
+function CareerJourney() {
+  const stages = [
+    {
+      id: "applied",
+      label: "Applied",
+      description: "Application submitted",
+      icon: <FaFileAlt />,
+      completed: true,
+    },
+    {
+      id: "interview",
+      label: "Interview",
+      description: "Interview stage",
+      icon: <FaUserTie />,
+      completed: true,
+    },
+    {
+      id: "offer",
+      label: "Offer",
+      description: "Offer received",
+      icon: <FaTrophy />,
+      completed: false,
+    },
+    {
+      id: "hired",
+      label: "Hired",
+      description: "Career milestone",
+      icon: <FaCheckCircle />,
+      completed: false,
+    },
+  ];
+
   return (
     <section className="career-journey">
-      <div className="career-journey__header">
-        <h2>Career Journey</h2>
 
-        <p>Track every milestone of your job search.</p>
+      <div className="career-journey__header">
+
+        <div>
+          <span className="career-journey__eyebrow">
+            CAREER JOURNEY
+          </span>
+
+          <h2 className="career-journey__title">
+            Your progress at a glance.
+          </h2>
+        </div>
+
+        <p className="career-journey__description">
+          Follow your applications as they move through
+          the hiring journey.
+        </p>
+
       </div>
 
       <div className="career-journey__timeline">
-        {/* Applied */}
-        <div
-          className={journey?.applied ? "career-step complete" : "career-step"}
-        >
-          <div className="career-step__icon">
-            <FaFileAlt />
+
+        {stages.map((stage, index) => (
+          <div
+            className="career-journey__stage-wrapper"
+            key={stage.id}
+          >
+
+            <div
+              className={`career-journey__stage ${
+                stage.completed
+                  ? "career-journey__stage--complete"
+                  : ""
+              }`}
+            >
+
+              <div className="career-journey__icon">
+                {stage.icon}
+              </div>
+
+              <div className="career-journey__stage-content">
+
+                <h3>
+                  {stage.label}
+                </h3>
+
+                <p>
+                  {stage.description}
+                </p>
+
+              </div>
+
+            </div>
+
+            {index < stages.length - 1 && (
+              <div
+                className={`career-journey__line ${
+                  stage.completed
+                    ? "career-journey__line--complete"
+                    : ""
+                }`}
+              />
+            )}
+
           </div>
+        ))}
 
-          <span>Applied</span>
-        </div>
-
-        {/* Line */}
-        <div
-          className={journey?.applied ? "career-line complete" : "career-line"}
-        ></div>
-
-        {/* Resume Viewed (Temporary) */}
-        <div className="career-step complete">
-          <div className="career-step__icon">
-            <FaEye />
-          </div>
-
-          <span>Resume Viewed</span>
-        </div>
-
-        {/* Line */}
-        <div
-          className={
-            journey?.interview ? "career-line complete" : "career-line"
-          }
-        ></div>
-
-        {/* Interview */}
-        <div
-          className={
-            journey?.interview ? "career-step complete" : "career-step"
-          }
-        >
-          <div className="career-step__icon">
-            <FaUserTie />
-          </div>
-
-          <span>Interview</span>
-        </div>
-
-        {/* Line */}
-        <div
-          className={journey?.offer ? "career-line complete" : "career-line"}
-        ></div>
-
-        {/* Offer */}
-        <div
-          className={journey?.offer ? "career-step complete" : "career-step"}
-        >
-          <div className="career-step__icon">
-            <FaTrophy />
-          </div>
-
-          <span>Offer</span>
-        </div>
       </div>
+
     </section>
   );
 }
