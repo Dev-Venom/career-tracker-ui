@@ -3,6 +3,7 @@ import "./Analytics.css";
 import CareerPulse from "./components/CareerPulse/CareerPulse";
 import CareerJourney from "./components/CareerJourney/CareerJourney";
 import ApplicationActivity from "./components/ApplicationActivity/ApplicationActivity";
+import ApplicationStatus from "./components/ApplicationStatus/ApplicationStatus";
 
 function Analytics() {
   return (
@@ -34,6 +35,8 @@ function Analytics() {
       <CareerJourney />
 
       <ApplicationActivity />
+
+      <ApplicationStatus />
 
      
 
