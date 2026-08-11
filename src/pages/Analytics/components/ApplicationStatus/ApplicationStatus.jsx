@@ -2,7 +2,7 @@ import "./ApplicationStatus.css";
 
 import ReactECharts from "echarts-for-react";
 
-function ApplicationStatus() {
+function ApplicationStatus({ statusData }) {
   const option = {
     tooltip: {
       trigger: "axis",
@@ -38,12 +38,7 @@ function ApplicationStatus() {
     yAxis: {
       type: "category",
 
-      data: [
-        "Applied",
-        "Interview",
-        "Offer",
-        "Rejected",
-      ],
+      data: ["Applied", "Interview", "Offer", "Rejected"],
 
       axisLine: {
         show: false,
@@ -66,10 +61,10 @@ function ApplicationStatus() {
         type: "bar",
 
         data: [
-          35,
-          12,
-          3,
-          8,
+          statusData?.applied ?? 0,
+          statusData?.interview ?? 0,
+          statusData?.offer ?? 0,
+          statusData?.rejected ?? 0,
         ],
 
         barWidth: 18,
@@ -93,11 +88,8 @@ function ApplicationStatus() {
 
   return (
     <section className="application-status">
-
       <div className="application-status__header">
-
         <div>
-
           <span className="application-status__eyebrow">
             APPLICATION STATUS
           </span>
@@ -105,20 +97,15 @@ function ApplicationStatus() {
           <h2 className="application-status__title">
             Where your applications stand.
           </h2>
-
         </div>
 
         <p className="application-status__description">
-          See how your applications are distributed
-          across the hiring pipeline.
+          See how your applications are distributed across the hiring pipeline.
         </p>
-
       </div>
 
       <div className="application-status__card">
-
         <div className="application-status__chart">
-
           <ReactECharts
             option={option}
             style={{
@@ -126,11 +113,8 @@ function ApplicationStatus() {
               height: "100%",
             }}
           />
-
         </div>
-
       </div>
-
     </section>
   );
 }

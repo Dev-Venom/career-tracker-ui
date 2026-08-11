@@ -6,10 +6,25 @@ import CareerJourney from "./components/CareerJourney/CareerJourney";
 import ApplicationActivity from "./components/ApplicationActivity/ApplicationActivity";
 import ApplicationStatus from "./components/ApplicationStatus/ApplicationStatus";
 
-function Analytics({statusData}) {
+function Analytics({ statusData }) {
+  const { analytics, loading, error } = useAnalytics();
 
-  const analytics = useAnalytics();
-  
+  if (loading) {
+    return (
+      <main className="analytics">
+        <p>Loading analytics...</p>
+      </main>
+    );
+  }
+
+  if (error) {
+    return (
+      <main className="analytics">
+        <p>Unable to load analytics.</p>
+      </main>
+    );
+  }
+
   return (
     <main className="analytics">
       <section className="analytics__hero">
