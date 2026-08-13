@@ -1,15 +1,15 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 
-import { useAuth } from "../../../hooks";
+function ProtectedRoute() {
+  const location = useLocation();
 
-function ProtectedRoute({ children }) {
-  const { isAuthenticated } = useAuth();
+  const token = localStorage.getItem("career_tracker_token");
 
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
+  if (!token) {
+    return <Navigate to="/login" replace state={{ from: location }} />;
   }
 
-  return children;
+  return <Outlet />;
 }
 
 export default ProtectedRoute;
