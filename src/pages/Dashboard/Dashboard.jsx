@@ -11,8 +11,6 @@ import QuickActions from "./components/QuickActions";
 import Analytics from "./components/analytics/Analytics";
 import toast from "react-hot-toast";
 
-
-
 import { deleteApplication } from "../../services/applications/applicationService";
 
 import NotificationBadge from "../../pages/Notifications/components/NotificationBadge/NotificationBadge";
@@ -35,14 +33,10 @@ function Dashboard() {
 
   const { unreadCount } = useNotifications();
 
-
-  
-
   async function handleDelete(id) {
-    
     if (!window.confirm("Are you sure you want to delete this application?")) {
-    return;
-}
+      return;
+    }
 
     try {
       await deleteApplication(id);
@@ -50,8 +44,6 @@ function Dashboard() {
       refreshDashboard();
     } catch (error) {
       toast.error("Failed to delete application.");
-
-      
     }
   }
 
@@ -146,13 +138,9 @@ function Dashboard() {
         onDelete={handleDelete}
       />
 
-      
-
       <UpcomingInterviews
         interviews={dashboardData?.upcomingInterviews || []}
       />
-
-      
 
       
 

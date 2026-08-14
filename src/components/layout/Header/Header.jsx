@@ -7,7 +7,7 @@ import useNotifications from "../../../hooks/useNotifications";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FaBars, FaBell } from "react-icons/fa";
-import logo from "../../../assets/logo/logo.png";
+import logo from "../../../assets/logo/career-tracker-logo.png";
 
 function Header({ setSidebarOpen }) {
   const navigate = useNavigate();
@@ -35,8 +35,6 @@ function Header({ setSidebarOpen }) {
 
         <Link to="/dashboard" className="header__brand">
           <img src={logo} alt="Career Tracker" className="header__logo" />
-
-          <span>CT</span>
         </Link>
       </div>
 
