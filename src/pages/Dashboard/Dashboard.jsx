@@ -11,8 +11,7 @@ import QuickActions from "./components/QuickActions";
 import Analytics from "./components/analytics/Analytics";
 import toast from "react-hot-toast";
 
-import ApplicationStatusChart from "../../components/charts/ApplicationStatusChart/ApplicationStatusChart";
-import ApplicationTrendChart from "../../components/charts/ApplicationTrendChart/ApplicationTrendChart";
+
 
 import { deleteApplication } from "../../services/applications/applicationService";
 
@@ -153,9 +152,7 @@ function Dashboard() {
         interviews={dashboardData?.upcomingInterviews || []}
       />
 
-      <ApplicationStatusChart dashboard={dashboardData} />
-
-      <ApplicationTrendChart applications={applications} />
+      
 
       
 
