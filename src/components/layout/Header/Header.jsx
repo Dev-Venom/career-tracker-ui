@@ -3,6 +3,7 @@ import "./Header.css";
 import { useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../../hooks";
+import useNotifications from "../../../hooks/useNotifications";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FaBars, FaBell } from "react-icons/fa";
@@ -16,6 +17,8 @@ function Header({ setSidebarOpen }) {
   const { unreadCount } = useNotifications();
 
   const location = useLocation();
+
+  
 
   function handleLogout() {
     logout();
