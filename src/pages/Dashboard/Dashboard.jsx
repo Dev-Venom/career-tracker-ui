@@ -82,11 +82,7 @@ function Dashboard() {
     );
   }
 
-  console.log("Dashboard Data:", dashboardData);
-
-  console.log("Stats:", dashboardData?.stats);
-
-  console.log("Applications:", dashboardData?.applications);
+  
 
   return (
     <main className="dashboard">
