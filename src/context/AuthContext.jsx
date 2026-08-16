@@ -1,9 +1,8 @@
-import { createContext, useMemo, useState } from "react";
+import { createContext, useMemo, useState, useEffect } from "react";
 
 import { login as loginService } from "../services/auth/authService";
 import { saveToken, removeToken } from "../utils/storage";
 
-import { useEffect } from "react";
 
 import { getCurrentUser } from "../services/user/userService";
 
