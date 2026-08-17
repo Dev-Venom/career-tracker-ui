@@ -1,44 +1,45 @@
 import "./InterviewList.css";
 
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import {
-  deleteInterview,
-} from "../../../services/interviews/interviewService";
+import { deleteInterview } from "../../../services/interviews/interviewService";
 
 import useInterviews from "../../../hooks/useInterviews";
 
+import toast from "react-hot-toast";
+
 import InterviewCard from "../components/InterviewCard/InterviewCard";
+
+import ConfirmModal from "../../../components/ui/ConfirmModal/ConfirmModal";
 
 function InterviewList() {
   const navigate = useNavigate();
 
-  const {
-    interviews,
-    loading,
-    error,
-    refreshInterviews,
-  } = useInterviews();
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [selectedInterviewId, setSelectedInterviewId] = useState(null);
 
-  async function handleDelete(id) {
-    const confirmed = window.confirm(
-      "Are you sure you want to delete this interview?"
-    );
+  const { interviews, loading, error, refreshInterviews } = useInterviews();
 
-    if (!confirmed) {
-      return;
-    }
+  function handleDeleteClick(id) {
+    setSelectedInterviewId(id);
+    setDeleteModalOpen(true);
+  }
 
+  async function handleDelete() {
     try {
-      await deleteInterview(id);
+      await deleteInterview(selectedInterviewId);
 
       await refreshInterviews();
 
-      alert("Interview deleted successfully.");
-    } catch (error) {
-      console.error(error);
+      toast.success("Interview deleted successfully.");
 
-      alert("Failed to delete interview.");
+      setDeleteModalOpen(false);
+      setSelectedInterviewId(null);
+    } catch (error) {
+      console.error("Failed to delete interview:", error);
+
+      toast.error("Failed to delete interview.");
     }
   }
 
@@ -66,10 +67,23 @@ function InterviewList() {
             key={interview.id}
             interview={interview}
             onEdit={handleEdit}
-            onDelete={handleDelete}
+            onDelete={handleDeleteClick}
           />
         ))
       )}
+
+      <ConfirmModal
+        isOpen={deleteModalOpen}
+        title="Delete interview?"
+        message="Are you sure you want to delete this interview? This action cannot be undone."
+        confirmText="Delete"
+        cancelText="Cancel"
+        onConfirm={handleDelete}
+        onCancel={() => {
+          setDeleteModalOpen(false);
+          setSelectedInterviewId(null);
+        }}
+      />
     </main>
   );
 }

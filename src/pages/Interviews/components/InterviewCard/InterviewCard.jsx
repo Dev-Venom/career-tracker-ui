@@ -1,15 +1,8 @@
-import "./InterviewCard.css";
-
 import { Card, Button } from "../../../../components/ui";
 
-function InterviewCard({
-  interview,
-  onEdit,
-  onDelete,
-}) {
+function InterviewCard({ interview, onEdit, onDelete }) {
   return (
     <Card className="interview-card">
-
       <div className="interview-card__header">
         <h3>{interview.companyName}</h3>
 
@@ -34,33 +27,20 @@ function InterviewCard({
 
       <p>
         <strong>Meeting:</strong>{" "}
-        <a
-          href={interview.meetingLink}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href={interview.meetingLink} target="_blank" rel="noreferrer">
           Join Meeting
         </a>
       </p>
 
       <div className="interview-card__actions">
-
-        <Button
-          variant="secondary"
-          onClick={() => onEdit(interview)}
-        >
+        <Button variant="secondary" onClick={() => onEdit(interview)}>
           Edit
         </Button>
 
-        <Button
-          variant="danger"
-          onClick={() => onDelete(interview.id)}
-        >
+        <Button variant="danger" onClick={() => onDelete(interview.id)}>
           Delete
         </Button>
-
       </div>
-
     </Card>
   );
 }

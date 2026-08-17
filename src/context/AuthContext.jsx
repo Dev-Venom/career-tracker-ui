@@ -22,7 +22,7 @@ function AuthProvider({ children }) {
 
     try {
       const response = await loginService(credentials);
-      console.log("Login Response:", response);
+      
 
       if (!response.token) {
         return {
@@ -34,19 +34,18 @@ function AuthProvider({ children }) {
       setToken(response.token);
       saveToken(response.token);
 
-      console.log("Before setUser:", response.user);
+      
 
       setUser(response.user);
 
-      console.log("After setUser:", response.user);
+     
 
       return {
         success: true,
       };
     } catch (error) {
-      console.log("LOGIN ERROR", error);
-      console.log("STATUS", error.response?.status);
-      console.log("DATA", error.response?.data);
+      
+      toast.error("Login failed.");
 
       return {
         success: false,

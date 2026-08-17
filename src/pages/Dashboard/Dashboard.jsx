@@ -8,17 +8,16 @@ import StatsGrid from "./components/StatsGrid";
 import RecentApplications from "./components/RecentApplications";
 import UpcomingInterviews from "./components/UpcomingInterviews";
 import QuickActions from "./components/QuickActions";
-import Analytics from "./components/analytics/Analytics";
+
 import toast from "react-hot-toast";
 
 import { deleteApplication } from "../../services/applications/applicationService";
 
-import NotificationBadge from "../../pages/Notifications/components/NotificationBadge/NotificationBadge";
-
 import useNotifications from "../../hooks/useNotifications";
-
 import { useAuth } from "../../hooks";
 import useDashboard from "../../hooks/useDashboard";
+
+import ConfirmModal from "../../components/ui/ConfirmModal/ConfirmModal";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -28,21 +27,31 @@ function Dashboard() {
   const { dashboardData, loading, error, refreshDashboard } = useDashboard();
 
   const [searchTerm, setSearchTerm] = useState("");
-
   const [statusFilter, setStatusFilter] = useState("ALL");
 
   const { unreadCount } = useNotifications();
 
-  async function handleDelete(id) {
-    if (!window.confirm("Are you sure you want to delete this application?")) {
-      return;
-    }
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [selectedApplicationId, setSelectedApplicationId] = useState(null);
 
+  function handleDeleteClick(id) {
+    setSelectedApplicationId(id);
+    setDeleteModalOpen(true);
+  }
+
+  async function handleDelete() {
     try {
-      await deleteApplication(id);
+      await deleteApplication(selectedApplicationId);
+
       toast.success("Application deleted successfully!");
-      refreshDashboard();
+
+      await refreshDashboard();
+
+      setDeleteModalOpen(false);
+      setSelectedApplicationId(null);
     } catch (error) {
+      console.error("Failed to delete application:", error);
+
       toast.error("Failed to delete application.");
     }
   }
@@ -82,24 +91,22 @@ function Dashboard() {
     );
   }
 
-  
-
   return (
     <main className="dashboard">
       <WelcomeBanner
         userName={user?.name || "Developer"}
-        applicationCount={dashboardData?.stats?.totalApplications || 0}
+        applicationCount={dashboardData?.stats?.applications || 0}
         onAddApplication={handleAddApplication}
       />
 
       <StatsGrid
         stats={
           dashboardData?.stats || {
-            totalApplications: 0,
+            applications: 0,
             applied: 0,
-            interview: 0,
-            offer: 0,
-            rejected: 0,
+            interviews: 0,
+            offers: 0,
+            rejections: 0,
           }
         }
       />
@@ -131,16 +138,27 @@ function Dashboard() {
 
       <RecentApplications
         applications={filteredApplications}
-        onDelete={handleDelete}
+        onDelete={handleDeleteClick}
       />
 
       <UpcomingInterviews
         interviews={dashboardData?.upcomingInterviews || []}
       />
 
-      
-
       <QuickActions />
+
+      <ConfirmModal
+        isOpen={deleteModalOpen}
+        title="Delete application?"
+        message="Are you sure you want to delete this application? This action cannot be undone."
+        confirmText="Delete"
+        cancelText="Cancel"
+        onConfirm={handleDelete}
+        onCancel={() => {
+          setDeleteModalOpen(false);
+          setSelectedApplicationId(null);
+        }}
+      />
     </main>
   );
 }

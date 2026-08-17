@@ -35,8 +35,6 @@ function RegisterForm() {
   const [error, setError] = useState("");
 
   function handleChange(event) {
-    
-
     const { name, value } = event.target;
 
     setFormData((previous) => ({
@@ -46,7 +44,6 @@ function RegisterForm() {
   }
 
   async function handleSubmit(event) {
-    console.log("Form Data:", formData);
     event.preventDefault();
 
     setError("");
@@ -79,16 +76,13 @@ function RegisterForm() {
         password: formData.password,
         role: "USER",
       };
-      console.log("Payload:", payload);
 
       await register(payload);
 
-      toaster.success("Account created successfully!");
+      toast.success("Account created successfully!");
 
       navigate("/login");
     } catch (error) {
-      console.log(error);
-
       setError(
         error.response?.data?.message ||
           "Registration failed. Please try again.",

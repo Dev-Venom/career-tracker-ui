@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../../../hooks";
 
+import toast from "react-hot-toast";
+
 function ProfileActions() {
 
   const navigate = useNavigate();
@@ -24,14 +26,14 @@ function ProfileActions() {
 
       <button
         className="profile-actions__button"
-        onClick={() => alert("Coming Soon 🚀")}
+        onClick={() => toast("Coming Soon 🚀")}
       >
         Edit Profile
       </button>
 
       <button
         className="profile-actions__button"
-        onClick={() => alert("Coming Soon 🚀")}
+        onClick={() => toast("Coming Soon 🚀")}
       >
         Change Password
       </button>

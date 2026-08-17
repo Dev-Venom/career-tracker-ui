@@ -15,7 +15,7 @@ function useDashboard() {
 
       const data = await getDashboardData();
 
-      console.log("HOOK DATA:", data);
+      
 
       setDashboardData(data);
       setError("");

@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 import { Card, Button, Input } from "../../../components/ui";
 
+import toast from "react-hot-toast";
+
 import { scheduleInterview } from "../../../services/interviews/interviewService";
 import { getMyApplications } from "../../../services/applications/applicationService";
 
@@ -52,11 +54,11 @@ function ScheduleInterview() {
     try {
       await scheduleInterview(formData);
 
-      alert("Interview scheduled successfully!");
+      toast.success("Interview scheduled successfully!");
 
       navigate("/interviews");
     } catch (error) {
-      alert("Failed to schedule interview.");
+      toast.error("Failed to schedule interview.");
 
       console.error(error);
     }

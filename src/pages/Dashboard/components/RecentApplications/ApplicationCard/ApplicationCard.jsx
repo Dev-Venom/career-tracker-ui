@@ -8,6 +8,8 @@ import { formatDate } from "../../../../../utils/date";
 
 import { getCompanyLogo } from "../../../../../utils/companyLogo";
 
+import toast from "react-hot-toast";
+
 function ApplicationCard({
   id,
   company,
@@ -26,7 +28,7 @@ function ApplicationCard({
   }
   function handleViewJob() {
     if (!jobUrl) {
-      alert("Job URL not available.");
+      toast.error("Job URL not available.");
       return;
     }
 
@@ -34,7 +36,7 @@ function ApplicationCard({
   }
   function handleOpenJob() {
     if (!jobUrl) {
-      alert("Job URL not available.");
+      toast.error("Job URL not available.");
       return;
     }
 

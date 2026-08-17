@@ -10,8 +10,6 @@ export async function getDashboardData() {
       getUpcomingInterviews(),
     ]);
 
-  console.log("Dashboard API:", dashboardResponse.data);
-
   return {
     stats: {
       applications: dashboardResponse.data.totalApplications,

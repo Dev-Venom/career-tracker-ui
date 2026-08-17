@@ -5,6 +5,8 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { Button, Card, Input } from "../../../components/ui";
 
+import toast from "react-hot-toast";
+
 import {
   getInterviewById,
   updateInterview,
@@ -59,13 +61,13 @@ function EditInterview() {
     try {
       await updateInterview(id, formData);
 
-      alert("Interview updated successfully!");
+      toast.success("Interview updated successfully!");
 
       navigate("/interviews");
     } catch (error) {
       console.error(error);
 
-      alert("Failed to update interview.");
+      toast.error("Failed to update interview.");
     }
   }
 
