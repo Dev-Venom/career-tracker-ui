@@ -1,3 +1,5 @@
+import "./InterviewCard.css";
+
 import { Card, Button } from "../../../../components/ui";
 
 function InterviewCard({ interview, onEdit, onDelete }) {

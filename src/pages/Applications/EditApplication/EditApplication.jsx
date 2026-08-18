@@ -1,9 +1,14 @@
+import "./EditApplication.css";
+
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+
 import detectJobPlatform from "../../../utils/detectJobPlatform";
 import toast from "react-hot-toast";
 
-import { Card, Input, Button, Select, TextArea } from "../../../components/ui";
+import { Card } from "../../../components/ui";
+
+import ApplicationForm from "../../../components/ApplicationForm/ApplicationForm";
 
 import {
   getApplicationById,
@@ -12,7 +17,6 @@ import {
 
 function EditApplication() {
   const { id } = useParams();
-
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -25,11 +29,14 @@ function EditApplication() {
     appliedDate: "",
     jobUrl: "",
     notes: "",
+    jobPlatform: "",
   });
+
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     loadApplication();
-  }, []);
+  }, [id]);
 
   async function loadApplication() {
     try {
@@ -38,6 +45,12 @@ function EditApplication() {
       setFormData(response.data);
     } catch (error) {
       console.error(error);
+
+      toast.error("Failed to load application.");
+
+      navigate("/dashboard");
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -57,6 +70,7 @@ function EditApplication() {
       ...formData,
       jobPlatform: detectJobPlatform(formData.jobUrl),
     };
+
     try {
       await updateApplication(id, payload);
 
@@ -64,100 +78,46 @@ function EditApplication() {
 
       navigate("/dashboard");
     } catch (error) {
-      console.error("Full Error:", error);
-      console.error("Response:", error.response);
-      console.error("Response Data:", error.response?.data);
+      console.error("Failed to update application:", error);
 
       toast.error("Failed to update application.");
     }
   }
 
+  if (loading) {
+    return (
+      <main className="edit-application">
+        <p className="edit-application__loading">
+          Loading application...
+        </p>
+      </main>
+    );
+  }
+
   return (
-    <main>
-      <Card>
-        <form onSubmit={handleSubmit}>
-          <Input
-            label="Company Name"
-            name="companyName"
-            value={formData.companyName}
-            onChange={handleChange}
-          />
+    <main className="edit-application">
+      <div className="edit-application__header">
+        <p className="edit-application__eyebrow">
+          APPLICATION TRACKER
+        </p>
 
-          <Input
-            label="Job Title"
-            name="jobTitle"
-            value={formData.jobTitle}
-            onChange={handleChange}
-          />
+        <h1 className="edit-application__title">
+          Edit Application
+        </h1>
 
-          <Input
-            label="Location"
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-          />
+        <p className="edit-application__description">
+          Update the details of this job opportunity.
+        </p>
+      </div>
 
-          <Select
-            label="Job Type"
-            name="jobType"
-            value={formData.jobType}
-            onChange={handleChange}
-            options={[
-              { value: "FULL_TIME", label: "Full Time" },
-              { value: "PART_TIME", label: "Part Time" },
-              { value: "INTERNSHIP", label: "Internship" },
-              { value: "CONTRACT", label: "Contract" },
-            ]}
-          />
-
-          <Select
-            label="Status"
-            name="status"
-            value={formData.status}
-            onChange={handleChange}
-            options={[
-              { value: "APPLIED", label: "Applied" },
-              { value: "INTERVIEW", label: "Interview" },
-              { value: "OFFER", label: "Offer" },
-              { value: "REJECTED", label: "Rejected" },
-            ]}
-          />
-
-          <Input
-            type="number"
-            label="Salary"
-            name="salary"
-            value={formData.salary}
-            onChange={handleChange}
-          />
-
-          <Input
-            type="date"
-            label="Applied Date"
-            name="appliedDate"
-            value={formData.appliedDate}
-            onChange={handleChange}
-          />
-
-          <Input
-            type="url"
-            label="Job URL"
-            name="jobUrl"
-            value={formData.jobUrl}
-            onChange={handleChange}
-          />
-
-          <TextArea
-            label="Notes"
-            name="notes"
-            value={formData.notes}
-            onChange={handleChange}
-          />
-
-          <Button type="submit" fullwidth>
-            Update Application
-          </Button>
-        </form>
+      <Card className="edit-application__card">
+        <ApplicationForm
+          title="Application Details"
+          submitText="Update Application"
+          formData={formData}
+          onChange={handleChange}
+          onSubmit={handleSubmit}
+        />
       </Card>
     </main>
   );

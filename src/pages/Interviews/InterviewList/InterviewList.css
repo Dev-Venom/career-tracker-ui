@@ -1,0 +1,55 @@
+.interview-list {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  padding: var(--space-xl);
+}
+
+.interview-list > h1 {
+  margin-bottom: var(--space-xl);
+
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+}
+
+.interview-list > p {
+  padding: var(--space-xl);
+
+  border: 2px dashed var(--color-border);
+  border-radius: var(--border-radius-md);
+
+  background: var(--color-surface);
+
+  color: var(--color-text-secondary);
+
+  text-align: center;
+}
+
+/* Interview cards */
+
+.interview-list .interview-card {
+  margin-bottom: var(--space-lg);
+}
+
+/* Loading / error states */
+
+.interview-list > h2 {
+  padding: var(--space-xl);
+
+  font-size: var(--font-size-lg);
+  text-align: center;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+  .interview-list {
+    padding: var(--space-md);
+  }
+
+  .interview-list > h1 {
+    font-size: var(--font-size-xl);
+  }
+}

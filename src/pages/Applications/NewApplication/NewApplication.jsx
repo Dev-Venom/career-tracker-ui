@@ -2,12 +2,14 @@ import "./NewApplication.css";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { createApplication } from "../../../services/applications/applicationService";
 import ApplicationForm from "../../../components/ApplicationForm/ApplicationForm";
 import detectJobPlatform from "../../../utils/detectJobPlatform";
+
 import toast from "react-hot-toast";
 
-import { Card, Input, Button, Select, TextArea } from "../../../components/ui";
+import { Card } from "../../../components/ui";
 
 function NewApplication() {
   const navigate = useNavigate();
@@ -57,9 +59,20 @@ function NewApplication() {
 
   return (
     <main className="new-application">
-      <Card>
+      <div className="new-application__header">
+        <p className="new-application__eyebrow">APPLICATION TRACKER</p>
+
+        <h1 className="new-application__title">Add New Application</h1>
+
+        <p className="new-application__description">
+          Keep your job search organized by tracking every opportunity in one
+          place.
+        </p>
+      </div>
+
+      <Card className="new-application__card">
         <ApplicationForm
-          title="Add New Application"
+          title="Application Details"
           submitText="Save Application"
           formData={formData}
           onChange={handleChange}

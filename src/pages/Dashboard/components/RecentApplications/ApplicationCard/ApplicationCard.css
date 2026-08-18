@@ -1,103 +1,202 @@
 .application-card {
-  padding: var(--space-lg);
+  padding: var(--space-3);
+
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
+
+.application-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-hover);
+}
+
 
 .application-card__content {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: var(--space-md);
 
-  margin-bottom: var(--space-lg);
+  gap: var(--space-3);
+
+  margin-bottom: var(--space-3);
 }
 
-.application-card__position {
-  margin-bottom: var(--space-xs);
+.application-card__company-wrapper {
+  display: flex;
+  align-items: flex-start;
 
+  gap: var(--space-2);
+
+  min-width: 0;
+}
+
+
+
+.application-card__logo,
+.application-card__avatar {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+}
+
+.application-card__logo {
+  object-fit: contain;
+
+  padding: var(--space-xs);
+
+  background-color: var(--color-white);
+
+  border: var(--border-medium);
+  border-radius: var(--radius-md);
+
+  cursor: pointer;
+
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.application-card__logo--clickable:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.application-card__avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--color-yellow);
+
+  border: var(--border-medium);
+  border-radius: var(--radius-md);
+
+  color: var(--color-black);
+
+  font-family: var(--font-heading);
   font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-extra-bold);
+}
 
+
+.application-card__company {
+  margin: 0 0 var(--space-xs);
+
+  color: var(--color-text-secondary);
+
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
 }
 
-.application-card__company {
-  color: var(--color-text-secondary);
+.application-card__position {
+  margin: 0 0 var(--space-1);
+
+  color: var(--color-text-primary);
+
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-heading);
 }
+
+
+
+.application-card__status {
+  display: inline-flex;
+  align-items: center;
+
+  margin-top: var(--space-xs);
+
+  padding: 4px 8px;
+
+  border: var(--border-thin);
+  border-radius: var(--radius-sm);
+
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Applied */
+
+.application-card__status--applied {
+  background-color: var(--color-yellow);
+  color: var(--color-black);
+}
+
+
+
+.application-card__status--interview {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+}
+
+.application-card__status--offer {
+  background-color: var(--color-green);
+  color: var(--color-black);
+}
+
+
+.application-card__status--rejected {
+  background-color: var(--color-pink);
+  color: var(--color-black);
+}
+
 
 .application-card__footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: var(--space-md);
+
+  gap: var(--space-2);
+
+  padding-top: var(--space-2);
+
+  border-top: var(--border-thin);
 
   flex-wrap: wrap;
+
+  color: var(--color-text-muted);
+
+  font-size: var(--font-size-sm);
 }
 
-.application-card__status {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: capitalize;
+.application-card__actions {
+  display: flex;
+  align-items: center;
+
+  gap: var(--space-1);
 }
 
-.application-card__status--applied {
-  background: #fff3cd;
-  color: #856404;
-}
 
-.application-card__status--interview {
-  background: #cfe2ff;
-  color: #084298;
-}
+@media (max-width: 599px) {
+  .application-card {
+    padding: var(--space-2);
+  }
 
-.application-card__status--offer {
-  background: #d1e7dd;
-  color: #0f5132;
-}
+  .application-card__company-wrapper {
+    gap: var(--space-1);
+  }
 
-.application-card__status--rejected {
-  background: #f8d7da;
-  color: #842029;
-}
+  .application-card__logo,
+  .application-card__avatar {
+    width: 42px;
+    height: 42px;
+  }
 
-.application-card__company-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
+  .application-card__position {
+    font-size: var(--font-size-md);
+  }
 
-.application-card__logo {
-    width: 52px;
-    height: 52px;
-    object-fit: contain;
-    border-radius: 12px;
-    background: white;
-    border: 2px solid #e5e7eb;
-    padding: 4px;
-}
+  .application-card__footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 
-.application-card__avatar {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: #FFD54F;
-    border: 3px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    font-weight: bold;
-    flex-shrink: 0;
-}
-
-.application-card__logo--clickable {
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-.application-card__logo--clickable:hover {
-    transform: scale(1.08);
-    box-shadow: 4px 4px 0 black;
+  .application-card__actions {
+    width: 100%;
+  }
 }

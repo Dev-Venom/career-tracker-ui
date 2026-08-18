@@ -1,18 +1,27 @@
-.kanban-board{
-
-    padding:32px;
-
-}
-
-.kanban-board h1{
-
-    margin-bottom:32px;
-
+.kanban-board {
+  width: 100%;
+  padding: var(--space-lg);
 }
 
 .kanban-board__columns {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-    align-items: start;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+@media (max-width: 1200px) {
+  .kanban-board__columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .kanban-board {
+    padding: var(--space-md);
+  }
+
+  .kanban-board__columns {
+    grid-template-columns: 1fr;
+  }
 }

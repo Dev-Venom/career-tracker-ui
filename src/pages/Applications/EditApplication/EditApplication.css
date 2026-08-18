@@ -1,4 +1,4 @@
-.new-application {
+.edit-application {
   width: 100%;
   max-width: 1000px;
 
@@ -7,18 +7,16 @@
   padding: var(--space-4);
 }
 
-
-.new-application__header {
+.edit-application__header {
   margin-bottom: var(--space-4);
 }
 
-
-.new-application__eyebrow {
+.edit-application__eyebrow {
   margin-bottom: var(--space-sm);
 
   font-family: var(--font-heading);
   font-size: var(--font-size-caption);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-extra-bold);
 
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -26,8 +24,7 @@
   color: var(--color-text-muted);
 }
 
-
-.new-application__title {
+.edit-application__title {
   margin-bottom: var(--space-sm);
 
   font-family: var(--font-heading);
@@ -38,32 +35,37 @@
   color: var(--color-text-primary);
 }
 
-
-.new-application__description {
+.edit-application__description {
   max-width: 620px;
+
+  color: var(--color-text-secondary);
 
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
+}
+
+.edit-application__card {
+  padding: var(--space-4);
+}
+
+.edit-application__loading {
+  padding: var(--space-4);
+
+  text-align: center;
 
   color: var(--color-text-secondary);
 }
 
-
-.new-application__card {
-  padding: var(--space-4);
-}
-
-
 @media (max-width: 767px) {
-  .new-application {
+  .edit-application {
     padding: var(--space-3);
   }
 
-  .new-application__title {
+  .edit-application__title {
     font-size: var(--font-size-h3);
   }
 
-  .new-application__card {
+  .edit-application__card {
     padding: var(--space-3);
   }
 }
