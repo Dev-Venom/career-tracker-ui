@@ -27,13 +27,13 @@
   text-align: center;
 }
 
-/* Interview cards */
+
 
 .interview-list .interview-card {
   margin-bottom: var(--space-lg);
 }
 
-/* Loading / error states */
+
 
 .interview-list > h2 {
   padding: var(--space-xl);
@@ -42,7 +42,6 @@
   text-align: center;
 }
 
-/* Responsive */
 
 @media (max-width: 700px) {
   .interview-list {

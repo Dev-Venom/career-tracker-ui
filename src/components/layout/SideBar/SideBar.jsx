@@ -1,73 +1,133 @@
+
 import "./SideBar.css";
 
 import { NavLink } from "react-router-dom";
 
 import {
-  FaHome,
   FaPlusCircle,
   FaColumns,
   FaCalendarAlt,
   FaClock,
-  FaBell,
   FaUser,
   FaTimes,
+  FaChartLine,
 } from "react-icons/fa";
 
 function Sidebar({ sidebarOpen, setSidebarOpen }) {
+  const getNavLinkClass = ({ isActive }) =>
+    `sidebar__link ${isActive ? "sidebar__link--active" : ""}`;
+
+  function handleNavigation() {
+    setSidebarOpen(false);
+  }
+
   return (
     <aside
-      className={`sidebar ${sidebarOpen ? "sidebar sidebar--open" : "sidebar"}`}
+      className={`sidebar ${sidebarOpen ? "sidebar--open" : ""}`}
     >
+      {/* Header */}
+
       <div className="sidebar__header">
-        <h2>Dashboard</h2>
+        <h2>Career Tracker</h2>
 
         <button
+          type="button"
           className="sidebar__close"
           onClick={() => setSidebarOpen(false)}
+          aria-label="Close sidebar"
         >
           <FaTimes />
         </button>
       </div>
 
-      <nav className="sidebar__nav">
-        <NavLink to="/analytics">Analytics</NavLink>
+      {/* Navigation */}
 
-        <h4 className="sidebar__section">Applications</h4>
+      <nav className="sidebar__nav">
+
+        {/* Analytics */}
+
+        <NavLink
+          to="/analytics"
+          className={getNavLinkClass}
+          onClick={handleNavigation}
+        >
+          <FaChartLine />
+
+          <span>Analytics</span>
+        </NavLink>
+
+        {/* Applications */}
+
+        <h4 className="sidebar__section">
+          Applications
+        </h4>
 
         <NavLink
           to="/applications/new"
-          className={({ isActive }) =>
-            isActive ? "sidebar__link active" : "sidebar__link"
-          }
+          className={getNavLinkClass}
+          onClick={handleNavigation}
         >
           <FaPlusCircle />
+
           <span>Add Application</span>
         </NavLink>
 
-        <NavLink to="/applications/board" className="sidebar__link">
+        <NavLink
+          to="/applications/board"
+          className={getNavLinkClass}
+          onClick={handleNavigation}
+        >
           <FaColumns />
+
           <span>Kanban Board</span>
         </NavLink>
 
-        <h4 className="sidebar__section">Interviews</h4>
+        {/* Interviews */}
 
-        <NavLink to="/interviews" className="sidebar__link">
+        <h4 className="sidebar__section">
+          Interviews
+        </h4>
+
+        <NavLink
+          to="/interviews"
+          className={getNavLinkClass}
+          onClick={handleNavigation}
+        >
           <FaClock />
+
           <span>Upcoming Interviews</span>
         </NavLink>
 
-        <NavLink to="/interviews/new" className="sidebar__link">
+        <NavLink
+          to="/interviews/new"
+          className={getNavLinkClass}
+          onClick={handleNavigation}
+        >
           <FaCalendarAlt />
+
           <span>Schedule Interview</span>
         </NavLink>
 
-        <NavLink to="/profile" className="sidebar__link">
+        {/* Account */}
+
+        <h4 className="sidebar__section">
+          Account
+        </h4>
+
+        <NavLink
+          to="/profile"
+          className={getNavLinkClass}
+          onClick={handleNavigation}
+        >
           <FaUser />
+
           <span>Profile</span>
         </NavLink>
+
       </nav>
     </aside>
   );
 }
 
 export default Sidebar;
+

@@ -1,35 +1,36 @@
 .career-pulse {
-  margin-top: 32px;
-
-  padding: 32px;
+  margin-top: var(--space-xl);
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  gap: 32px;
+  gap: var(--space-xl);
 
-  border: 1px solid #e5e7eb;
-  border-radius: 24px;
+  padding: var(--space-xl);
 
-  background: #ffffff;
+  border: var(--border-width-thin) solid var(--color-border);
+  border-radius: var(--border-radius-lg);
 
-  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+  background: var(--color-surface);
+
+  box-shadow: var(--shadow-sm);
 }
 
+
 .career-pulse__content {
-  max-width: 720px;
+  max-width: 680px;
 }
 
 .career-pulse__eyebrow {
   display: inline-block;
 
-  margin-bottom: 10px;
+  margin-bottom: var(--space-xs);
 
-  font-size: 11px;
-  font-weight: 800;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
 
-  letter-spacing: 0.15em;
+  letter-spacing: 0.14em;
 
   color: #6366f1;
 }
@@ -37,56 +38,75 @@
 .career-pulse__title {
   margin: 0;
 
-  font-size: clamp(28px, 3vw, 38px);
+  font-size: var(--font-size-2xl);
 
-  line-height: 1.15;
+  line-height: 1.2;
 
-  font-weight: 800;
+  font-weight: var(--font-weight-bold);
 
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
 
-  color: #111827;
+  color: var(--color-text);
 }
 
 .career-pulse__message {
-  max-width: 650px;
+  max-width: 620px;
 
-  margin: 12px 0 0;
+  margin: var(--space-sm) 0 0;
 
-  font-size: 16px;
+  font-size: var(--font-size-sm);
 
-  line-height: 1.7;
+  line-height: 1.6;
 
-  color: #6b7280;
+  color: var(--color-text-secondary);
 }
 
-.career-pulse__indicator {
-  min-width: 150px;
 
-  padding: 20px;
+
+.career-pulse__indicator {
+  min-width: 130px;
+
+  padding: var(--space-md);
 
   display: flex;
   flex-direction: column;
 
-  gap: 6px;
+  gap: var(--space-xs);
 
-  border-radius: 18px;
+  border-radius: var(--border-radius-md);
 
   background: #f5f7ff;
+
+  flex-shrink: 0;
 }
 
 .career-pulse__indicator-label {
-  font-size: 12px;
+  font-size: var(--font-size-xs);
 
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
 
-  color: #6b7280;
+  color: var(--color-text-secondary);
 }
 
 .career-pulse__indicator-value {
-  font-size: 22px;
+  font-size: var(--font-size-xl);
 
-  font-weight: 800;
+  font-weight: var(--font-weight-bold);
 
   color: #4f46e5;
+}
+
+
+@media (max-width: 768px) {
+  .career-pulse {
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: var(--space-lg);
+  }
+
+  .career-pulse__indicator {
+    width: 100%;
+    min-width: 0;
+  }
 }
