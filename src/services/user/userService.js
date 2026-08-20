@@ -5,3 +5,9 @@ export async function getCurrentUser() {
 
     return response.data;
 }
+
+export async function updateCurrentUser(userData) {
+    const response = await client.put("/users/me", userData);
+
+    return response.data;
+}

@@ -3,8 +3,9 @@ import { createContext, useMemo, useState, useEffect } from "react";
 import { login as loginService } from "../services/auth/authService";
 import { saveToken, removeToken } from "../utils/storage";
 
-
 import { getCurrentUser } from "../services/user/userService";
+
+import { updateCurrentUser } from "../services/user/userService";
 
 import { getToken } from "../utils/storage";
 
@@ -22,7 +23,6 @@ function AuthProvider({ children }) {
 
     try {
       const response = await loginService(credentials);
-      
 
       if (!response.token) {
         return {
@@ -34,17 +34,12 @@ function AuthProvider({ children }) {
       setToken(response.token);
       saveToken(response.token);
 
-      
-
       setUser(response.user);
-
-     
 
       return {
         success: true,
       };
     } catch (error) {
-      
       toast.error("Login failed.");
 
       return {
@@ -57,36 +52,52 @@ function AuthProvider({ children }) {
     }
   }
   useEffect(() => {
-
     async function loadUser() {
+      const token = getToken();
 
-        const token = getToken();
+      if (!token) return;
 
-        if (!token) return;
+      setToken(token);
 
-        setToken(token);
+      try {
+        const user = await getCurrentUser();
 
-        try {
+        setUser(user);
+      } catch (error) {
+        console.error(error);
 
-            const user = await getCurrentUser();
-
-            setUser(user);
-
-        } catch (error) {
-
-            console.error(error);
-
-            logout();
-
-        }
-
+        logout();
+      }
     }
 
     loadUser();
+  }, []);
 
-}, []);
+  async function updateProfile(profileData) {
+    setIsLoading(true);
 
-  
+    try {
+      const updatedUser = await updateCurrentUser(profileData);
+
+      setUser(updatedUser);
+
+      return {
+        success: true,
+        user: updatedUser,
+      };
+    } catch (error) {
+      console.error("Profile update failed:", error);
+
+      return {
+        success: false,
+        message:
+          error.response?.data?.message ||
+          "Unable to update profile. Please try again.",
+      };
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   function logout() {
     setUser(null);
@@ -94,7 +105,6 @@ function AuthProvider({ children }) {
 
     removeToken();
   }
-
   const value = useMemo(
     () => ({
       user,
@@ -103,6 +113,7 @@ function AuthProvider({ children }) {
       isAuthenticated,
       login,
       logout,
+      updateProfile,
     }),
     [user, token, isLoading],
   );
