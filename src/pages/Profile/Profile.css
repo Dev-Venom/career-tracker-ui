@@ -565,6 +565,8 @@
     grid-template-columns: 1fr;
   }
 
- 
+  .profile__card-header h2 {
+    font-size: 19px;
+  }
 }
 
