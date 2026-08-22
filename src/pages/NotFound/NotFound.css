@@ -217,5 +217,8 @@
     width: 100%;
   }
 
-  
+  .not-found__primary,
+  .not-found__secondary {
+    width: 100%;
+  }
 }
