@@ -24,6 +24,17 @@ The frontend is built with React and designed around a clean, responsive product
 
 ---
 
+## Standalone GitHub Commit Heatmap
+
+A self-contained static page is available at:
+
+- `/home/runner/work/career-tracker-ui/career-tracker-ui/github-commit-heatmap.html`
+
+Open the file directly in your browser to view a contribution-style commit heatmap.
+Use your GitHub username, optional token, and optional `owner/repo` fallback input directly in the page.
+
+---
+
 ## Features
 
 ### Dashboard
